@@ -1,0 +1,17 @@
+{
+  "name": "ecom-native",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "pnpm install --prefix api && pnpm install --prefix admin && pnpm --prefix admin run build",
+    "start": "pnpm --prefix api run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.20.0"
+}
