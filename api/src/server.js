@@ -2,10 +2,16 @@
 import express from "express";
 import path from "path";
 import { ENV } from "./config/env.js";
+import { connectDB } from "./config/db.js";
+import { clerkMiddleware } from '@clerk/express'
+
 
 // Create Express app:
 const app = express();
 const __dirname = path.resolve();
+
+// Middleware:
+app.use(clerkMiddleware())
 
 // Test route:
 app.get("/api/health", (_req, res) => {
@@ -27,4 +33,5 @@ app.listen(ENV["PORT"], () => {
   console.log(
     `Server is running on http://localhost:${ENV["PORT"]}/api/health`
   );
+  connectDB();
 });
